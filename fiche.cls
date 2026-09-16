@@ -4,10 +4,13 @@
 \ProvidesClass{fiche}[2026/09/15 Fiche de travail d'anglais]
 
 \newif\ifcorrige \corrigefalse
+\newcommand{\fiche@niveau}{Seconde}
 \newif\iffiche@charter \fiche@charterfalse
 \newif\iffiche@cm \fiche@cmfalse
 \DeclareOption{corrige}{\corrigetrue}
 \DeclareOption{charter}{\fiche@chartertrue}
+\DeclareOption{seconde}{\renewcommand{\fiche@niveau}{Seconde}}
+\DeclareOption{troisieme}{\renewcommand{\fiche@niveau}{Troisième}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[11pt,a4paper]{article}
@@ -61,7 +64,7 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancyhead[L]{\footnotesize\sffamily Anglais~--~Seconde\quad Fiche \fichenum}
+\fancyhead[L]{\footnotesize\sffamily Anglais~--~\fiche@niveau\quad Fiche \fichenum}
 \fancyhead[R]{\footnotesize\sffamily\ifcorrige\color{rep}Corrigé\else Énoncé\fi}
 \fancyfoot[C]{\footnotesize\sffamily\thepage}
 
