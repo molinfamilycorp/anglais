@@ -20,7 +20,12 @@ make pdf/fiche01-corrige.pdf      # un seul
 make clean
 ```
 
-Nécessite une TeX Live complète (babel-french, charter, mdframed, lineno).
+Nécessite `babel-french`, `mdframed`, `lineno`, `enumitem`, `titlesec`, `needspace`.
+La police par défaut est Latin Modern, présente dans toute installation, même partielle.
+
+```sh
+tlmgr install charter helvetic     # puis \documentclass[charter]{fiche}
+```
 
 ## Un source, deux PDF
 

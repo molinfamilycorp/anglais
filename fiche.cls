@@ -4,7 +4,10 @@
 \ProvidesClass{fiche}[2026/09/15 Fiche de travail d'anglais]
 
 \newif\ifcorrige \corrigefalse
+\newif\iffiche@charter \fiche@charterfalse
+\newif\iffiche@cm \fiche@cmfalse
 \DeclareOption{corrige}{\corrigetrue}
+\DeclareOption{charter}{\fiche@chartertrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[11pt,a4paper]{article}
@@ -17,9 +20,19 @@
    \ClassWarningNoLine{fiche}{babel-french absent : composition en anglais}}
 \providecommand{\og}{\guillemotleft\,}
 \providecommand{\fg}{\,\guillemotright}
-\RequirePackage{charter}
-\RequirePackage[scaled=0.88]{helvet}
-\RequirePackage{microtype}
+%% Polices. Par défaut Latin Modern, présente dans toute installation TeX, même
+%% partielle. L'option de classe « charter » lui substitue Charter + Helvetica,
+%% plus agréables mais absentes de BasicTeX (tlmgr install charter helvetic).
+\iffiche@charter
+  \RequirePackage{charter}
+  \IfFileExists{helvet.sty}{\RequirePackage[scaled=0.88]{helvet}}{}
+\else
+  \IfFileExists{lmodern.sty}
+    {\RequirePackage{lmodern}}
+    {\fiche@cmtrue}
+\fi
+\iffiche@cm \RequirePackage[expansion=false]{microtype}
+\else \RequirePackage{microtype}\fi
 \RequirePackage[a4paper,margin=2.2cm,top=2.6cm,bottom=2.4cm]{geometry}
 \RequirePackage{xcolor}
 \RequirePackage{enumitem}
