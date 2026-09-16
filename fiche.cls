@@ -69,10 +69,10 @@
   \thispagestyle{fancy}%
   \begingroup
   \sffamily
-  {\color{accent}\rule{\linewidth}{1pt}}\par\vspace{2mm}
+  \noindent{\color{accent}\rule{\linewidth}{1pt}}\par\vspace{2mm}
   {\footnotesize\color{accent}\MakeUppercase{\fichebloc}}\par\vspace{1mm}
   {\LARGE\bfseries Fiche \fichenum\ --- \fichetitre}\par\vspace{2mm}
-  {\color{accent}\rule{\linewidth}{1pt}}
+  \noindent{\color{accent}\rule{\linewidth}{1pt}}
   \endgroup
   \vspace{4mm}\par}
 
